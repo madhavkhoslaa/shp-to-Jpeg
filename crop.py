@@ -5,11 +5,14 @@ from shapely.geometry import Point,Polygon
 import os, glob
 import shutil
 from tqdm import tqdm
+import sys
 
+Len_= sys.argv[1]
+location= sys.argv[2]
 
-for i in tqdm(range(0, 500)):
+for i in tqdm(range(0, Len_)):
     try:
-        name = "/Users/madhav/Desktop/OUTPUT/Output/Defence Colony/{}".format(i)
+        name = "{}/{}".format(location, i)
         shape_file= glob.glob(name+"/*.shp")[0]
         image_name= glob.glob(name+"/*.png")[0]
         sf = shapefile.Reader(shape_file)
